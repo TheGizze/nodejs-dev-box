@@ -1,0 +1,14 @@
+---
+
+- name: clone project repository
+  git:
+    repo: https://github.com/TheGizze/nodejs-helloworld.git
+    dest: /vagrant/nodejs-helloworld
+    accept_hostkey: yes
+
+
+- name: build docker image
+  shell: docker build -t hello-node:v1 /vagrant/nodejs-helloworld
+
+- name: run app
+  shell: docker run -d -p 8080:8080 hello-node:v1
