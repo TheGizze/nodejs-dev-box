@@ -1,2 +1,4 @@
 .idea/
 .vagrant/
+nodejs-helloworld/
+playbook.retry
