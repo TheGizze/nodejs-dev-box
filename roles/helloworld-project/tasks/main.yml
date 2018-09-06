@@ -6,6 +6,10 @@
     dest: /vagrant/nodejs-helloworld
     accept_hostkey: yes
 
+- name: update packages based on package.json to their latest version.
+  npm:
+    path: /vagrant/nodejs-helloworld
+    state: latest
 
 - name: build docker image
   shell: docker build -t hello-node:v1 /vagrant/nodejs-helloworld
