@@ -1,0 +1,18 @@
+---
+
+- name: install dependecies
+  apt:
+    name: '{{ item }}'
+    state: latest
+    update_cache: yes
+  with_items:
+    - curl
+    - python-software-properties
+
+- name: Add Node.js PPA
+  shell: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+
+- name: install nodejs
+  apt:
+    name: nodejs
+    state: latest
